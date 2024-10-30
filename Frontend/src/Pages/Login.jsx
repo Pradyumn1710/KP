@@ -20,7 +20,8 @@ export default function Login() {
     useEffect(() => {
         const debounceTimer = setTimeout(() => {
             setUser(inputValue);
-        }, 300); // 300ms delay
+            
+        }, 200); // 300ms delay
 
         // Clear timeout if input changes (prevents premature `setUser` calls)
         return () => clearTimeout(debounceTimer);
@@ -54,7 +55,8 @@ function LoginBox({ setInputValue }) {
                         placeholder="Username/Email"
                         type="email"
                         onChange={(e) => {
-                            setInputValue(e.target.value); // Update input value on each keystroke
+                            setInputValue(e.target.value);
+                             // Update input value on each keystroke
                         }}
                     />
                     <Label>Password</Label>
@@ -71,6 +73,7 @@ function LoginBox({ setInputValue }) {
 
 function LoginAnimation({ user }) {
     const [image, setImage] = useState("/test/6665857.jpg"); // Set a default image path
+    localStorage.setItem('username',user)
 
     // Update image based on user value with a debounce
     useEffect(() => {
